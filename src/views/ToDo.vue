@@ -6,6 +6,7 @@
       <input type="text" name="item" id="item" />
       <input type="submit" value="Add" />
     </form>
+    <ul class="todolist"></ul>
   </div>
 </template>
 
