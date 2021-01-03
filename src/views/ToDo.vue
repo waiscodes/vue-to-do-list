@@ -8,7 +8,7 @@
     </form>
     <ul class="todolist">
       <li v-for="(item, index) in todos" :key="index">
-        {{ item }}
+        {{ item.text }}
       </li>
     </ul>
   </div>
@@ -23,7 +23,7 @@ export default defineComponent({
     const toDoInput = ref(""); // Ref stores things as objects. {value = ""}
     const addToDo = () => {
       todos.unshift({
-        toDoInput,
+        text: toDoInput.value,
       });
     };
 
