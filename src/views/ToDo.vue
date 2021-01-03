@@ -20,9 +20,11 @@ import { defineComponent, reactive, ref } from "vue";
 export default defineComponent({
   setup() {
     const todos = reactive([]);
-    const toDoInput = ref("");
+    const toDoInput = ref(""); // Ref stores things as objects. {value = ""}
     const addToDo = () => {
-      todos.unshift("Yep GET EM");
+      todos.unshift({
+        toDoInput,
+      });
     };
 
     return {
