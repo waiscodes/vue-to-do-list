@@ -1,14 +1,14 @@
 <template>
   <div class="ToDo">
     <h2>To Do List</h2>
-    <form action="#">
+    <form action="#" @submit.prevent="addToDo">
       <label for="item">Item</label>
       <input type="text" name="item" id="item" v-model="toDoInput" />
       <input type="submit" value="Add" />
     </form>
     <ul class="todolist">
       <li v-for="(item, index) in todos" :key="index">
-        {{ item.text }}
+        {{ item }}
       </li>
     </ul>
   </div>
@@ -21,9 +21,14 @@ export default defineComponent({
   setup() {
     const todos = reactive([]);
     const toDoInput = ref("");
+    const addToDo = () => {
+      todos.unshift("Yep GET EM");
+    };
+
     return {
       todos,
       toDoInput,
+      addToDo,
     };
   },
 });
