@@ -25,6 +25,7 @@ export default defineComponent({
       todos.unshift({
         text: toDoInput.value,
       });
+      toDoInput.value = "";
     };
 
     return {
