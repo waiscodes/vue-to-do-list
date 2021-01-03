@@ -3,7 +3,7 @@
     <h2>To Do List</h2>
     <form action="#">
       <label for="item">Item</label>
-      <input type="text" name="item" id="item" />
+      <input type="text" name="item" id="item" v-model="toDoInput" />
       <input type="submit" value="Add" />
     </form>
     <ul class="todolist">
@@ -15,18 +15,15 @@
 </template>
 
 <script>
-import { defineComponent, reactive } from "vue";
+import { defineComponent, reactive, ref } from "vue";
 
 export default defineComponent({
   setup() {
-    const todos = reactive([
-      {
-        text: "First To Do Item",
-      },
-    ]);
-
+    const todos = reactive([]);
+    const toDoInput = ref("");
     return {
       todos,
+      toDoInput,
     };
   },
 });
