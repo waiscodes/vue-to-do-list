@@ -9,7 +9,7 @@
     <ul class="todolist">
       <li v-for="(item, index) in todos" :key="index">
         {{ item.text }}
-        <span>&check;</span>
+        <button v-if="!item.done">Finish</button>
       </li>
     </ul>
   </div>
@@ -22,17 +22,23 @@ export default defineComponent({
   setup() {
     const todos = reactive([]);
     const toDoInput = ref(""); // Ref stores things as objects. {value = ""}
+
     const addToDo = () => {
       todos.unshift({
         text: toDoInput.value,
+        done: false,
       });
       toDoInput.value = "";
+    };
+    const finishTask = () => {
+      // todos.done = true;
     };
 
     return {
       todos,
       toDoInput,
       addToDo,
+      finishTask,
     };
   },
 });
