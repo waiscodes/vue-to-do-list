@@ -9,6 +9,7 @@
     <ul class="todolist">
       <li v-for="(item, index) in todos" :key="index">
         {{ item.text }}
+        <span>&check;</span>
       </li>
     </ul>
   </div>
