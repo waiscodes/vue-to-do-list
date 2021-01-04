@@ -17,6 +17,7 @@
         </span>
         <button v-if="!item.done" @click="markasDone(index)">Finish</button>
         <button @click="deleteItem(index)">Delete</button>
+        <button @click="editItem">Edit</button>
       </li>
     </ul>
   </div>
@@ -50,12 +51,17 @@ export default defineComponent({
       }
     };
 
+    const editItem = () => {
+      toDoInput.value = "This is a quirk of Vue.";
+    };
+
     return {
       todos,
       toDoInput,
       addToDo,
       markasDone,
       deleteItem,
+      editItem,
     };
   },
 });
