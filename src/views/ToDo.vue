@@ -42,7 +42,12 @@ export default defineComponent({
     };
 
     const deleteItem = (index) => {
-      todos.splice(index, 1);
+      if (!confirm("Are you sure?")) {
+        return;
+      } else {
+        todos.splice(index, 1);
+        alert("removed");
+      }
     };
 
     return {
