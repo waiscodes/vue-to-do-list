@@ -9,7 +9,7 @@
     <ul class="todolist">
       <li v-for="(item, index) in todos" :key="index">
         {{ item.text }}
-        <button v-if="!item.done" @click="markasDone">Finish</button>
+        <button v-if="!item.done" @click="markasDone(index)">Finish</button>
       </li>
     </ul>
   </div>
@@ -30,8 +30,8 @@ export default defineComponent({
       });
       toDoInput.value = "";
     };
-    const markasDone = () => {
-      // todos.done = true;
+    const markasDone = (index) => {
+      todos[index].done = true;
     };
 
     return {
