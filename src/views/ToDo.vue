@@ -7,8 +7,14 @@
       <input type="submit" value="Add" />
     </form>
     <ul class="todolist">
-      <li v-for="(item, index) in todos" :key="index">
-        {{ item.text }}
+      <li
+        v-for="(item, index) in todos"
+        :key="index"
+        :class="[done ? '' : finished]"
+      >
+        <span>
+          {{ item.text }}
+        </span>
         <button v-if="!item.done" @click="markasDone(index)">Finish</button>
         <button @click="deleteItem(index)">Delete</button>
       </li>
@@ -54,5 +60,9 @@ export default defineComponent({
 .ToDo {
   border: solid;
   text-align: center;
+}
+
+.finished {
+  background: chartreuse;
 }
 </style>
