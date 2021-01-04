@@ -10,6 +10,7 @@
       <li v-for="(item, index) in todos" :key="index">
         {{ item.text }}
         <button v-if="!item.done" @click="markasDone(index)">Finish</button>
+        <button @click="deleteItem(index)">Delete</button>
       </li>
     </ul>
   </div>
@@ -34,11 +35,16 @@ export default defineComponent({
       todos[index].done = true;
     };
 
+    const deleteItem = (index) => {
+      todos.splice(index, 1);
+    };
+
     return {
       todos,
       toDoInput,
       addToDo,
       markasDone,
+      deleteItem,
     };
   },
 });
